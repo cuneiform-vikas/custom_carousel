@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
-const Carousel = ({ images }) => {
+const Carousel = ({ images, autoplayInterval }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setActiveIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
-  };
+  }, [images.length]);
+
+  useEffect(() => {
+    if (autoplayInterval) {
+      const autoplay = setInterval(handleNext, autoplayInterval);
+      return () => clearInterval(autoplay);
+    }
+  }, [autoplayInterval, handleNext]);
 
   const currentTransform = -activeIndex * 100;
 
