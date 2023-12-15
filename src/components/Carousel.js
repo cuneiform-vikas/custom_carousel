@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const Carousel = ({
   images,
@@ -8,16 +8,15 @@ const Carousel = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // We can use useCallback hook to memoize event handlers.
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setActiveIndex(
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
-  };
+  }, [images.length]);
 
   useEffect(() => {
     if (autoplayInterval) {
