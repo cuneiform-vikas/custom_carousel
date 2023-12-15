@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import images from "../assets";
 
-const Carousel = () => {
+const Carousel = ({ images }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = () => {
@@ -16,6 +15,15 @@ const Carousel = () => {
 
   const currentTransform = -activeIndex * 100;
 
+  // ______ Keyoboard Navigation ________
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowRight") {
+      handleNext();
+    } else if (event.key === "ArrowLeft") {
+      handlePrev();
+    }
+  };
+
   // _______ Pagination Indicator _______
   const renderPaginationIndicatiors = () => {
     return images.map((_, index) => (
@@ -29,7 +37,7 @@ const Carousel = () => {
     ));
   };
   return (
-    <div className="carousel-wrapper">
+    <div className="carousel-wrapper" onKeyDown={handleKeyDown} tabIndex="0">
       <div
         className="carousel-items"
         style={{ transform: `translateX(${currentTransform}%)` }}
@@ -48,7 +56,7 @@ const Carousel = () => {
       <div className="pagination-indicators">
         {renderPaginationIndicatiors()}
       </div>
-      
+
       {/* _____navigation buttons______ */}
       <button className="carousel-controls prev" onClick={handlePrev}>
         <span className="material-symbols-outlined">arrow_back_ios</span>
