@@ -30,3 +30,74 @@ button {
   height: 100%;
   width: 100%;
 }
+
+.App h1 {
+  margin: 1rem;
+  color: seagreen;
+}
+
+/* _____Carousel Styles_______ */
+.App .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border: 8px solid white;
+}
+
+.carousel-wrapper .carousel-items {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-items .carousel-item {
+  flex-shrink: 0;
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* Carousel Navigation Button Styles */
+.carousel-wrapper .carousel-controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border: none;
+}
+
+.carousel-wrapper .prev {
+  left: 0;
+  border-radius: 0 50px 50px 0;
+}
+
+.carousel-wrapper .next {
+  right: 0;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Pagination Indicators Styles */
+.carousel-wrapper .pagination-indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pagination-indicators .pagination-indicator {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0 0.2rem;
+}
+
+.carousel-wrapper .pagination-indicator.active {
+  background-color: #fff;
+}
