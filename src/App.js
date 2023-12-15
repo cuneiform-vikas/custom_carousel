@@ -7,7 +7,12 @@ const App = () => {
   return (
     <div className="App">
       <h1>React Carousel</h1>
-      <Carousel images={images} autoplayInterval={2000} />
+      <Carousel
+        images={images}
+        autoplayInterval={3000}
+        showControls={true}
+        showIndicators={true}
+      />
     </div>
   );
 };

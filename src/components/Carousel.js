@@ -1,6 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
 
-const Carousel = ({ images, autoplayInterval }) => {
+const Carousel = ({
+  images,
+  autoplayInterval,
+  showControls = true,
+  showIndicators = true,
+}) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleNext = useCallback(() => {
@@ -44,7 +49,13 @@ const Carousel = ({ images, autoplayInterval }) => {
     ));
   };
   return (
-    <div className="carousel-wrapper" onKeyDown={handleKeyDown} tabIndex="0">
+    <div
+      className="carousel-wrapper"
+      onKeyDown={handleKeyDown}
+      tabIndex="0"
+      aria-live="polite"
+      aria-roledescription="carousel"
+    >
       <div
         className="carousel-items"
         style={{ transform: `translateX(${currentTransform}%)` }}
@@ -60,17 +71,31 @@ const Carousel = ({ images, autoplayInterval }) => {
       </div>
 
       {/* _____pagination indicator function_____ */}
-      <div className="pagination-indicators">
-        {renderPaginationIndicatiors()}
-      </div>
+      {showIndicators && (
+        <div className="pagination-indicators">
+          {renderPaginationIndicatiors()}
+        </div>
+      )}
 
       {/* _____navigation buttons______ */}
-      <button className="carousel-controls prev" onClick={handlePrev}>
-        <span className="material-symbols-outlined">arrow_back_ios</span>
-      </button>
-      <button className="carousel-controls next" onClick={handleNext}>
-        <span className="material-symbols-outlined">arrow_forward_ios</span>
-      </button>
+      {showControls && (
+        <>
+          <button
+            className="carousel-controls prev"
+            onClick={handlePrev}
+            aria-label="Previous slide"
+          >
+            <span className="material-symbols-outlined">arrow_back_ios</span>
+          </button>
+          <button
+            className="carousel-controls next"
+            onClick={handleNext}
+            aria-label="Next slide"
+          >
+            <span className="material-symbols-outlined">arrow_forward_ios</span>
+          </button>
+        </>
+      )}
     </div>
   );
 };
