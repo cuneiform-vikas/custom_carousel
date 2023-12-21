@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/custom_carousel/static/css/main.987cbd16.css",
+    "main.js": "/custom_carousel/static/js/main.b76dfbcd.js",
+    "static/js/787.3266347c.chunk.js": "/custom_carousel/static/js/787.3266347c.chunk.js",
+    "static/media/image4.jpg": "/custom_carousel/static/media/image4.39bc9b223228a61516c8.jpg",
+    "static/media/image5.jpg": "/custom_carousel/static/media/image5.e606a66e2a1e9da6eda7.jpg",
+    "static/media/image1.jpg": "/custom_carousel/static/media/image1.89de7791e664e8b7b3fd.jpg",
+    "static/media/image2.jpg": "/custom_carousel/static/media/image2.9104440c7ad75356ba08.jpg",
+    "static/media/image3.jpg": "/custom_carousel/static/media/image3.835fe0662c2d1002561c.jpg",
+    "index.html": "/custom_carousel/index.html",
+    "main.987cbd16.css.map": "/custom_carousel/static/css/main.987cbd16.css.map",
+    "main.b76dfbcd.js.map": "/custom_carousel/static/js/main.b76dfbcd.js.map",
+    "787.3266347c.chunk.js.map": "/custom_carousel/static/js/787.3266347c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.987cbd16.css",
+    "static/js/main.b76dfbcd.js"
+  ]
+}
